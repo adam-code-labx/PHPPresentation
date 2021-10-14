@@ -347,7 +347,12 @@ abstract class AbstractSlide implements ComparableInterface, ShapeContainerInter
         return $this;
     }
 
-    public function getRelsIndex(): string
+    /**
+     * @todo why would this return null?
+     *
+     * @return string|null
+     */
+    public function getRelsIndex(): ?string
     {
         return $this->relsIndex;
     }
