@@ -28,35 +28,35 @@ use PhpOffice\PhpPresentation\Shape\RichText;
 use PhpOffice\PhpPresentation\ShapeContainerInterface;
 use PhpOffice\PhpPresentation\Slide;
 
-class Note implements ComparableInterface, ShapeContainerInterface
+class Note extends AbstractSlide implements ComparableInterface, ShapeContainerInterface
 {
     /**
      * Parent slide.
      *
      * @var Slide
      */
-    private $parent;
+    protected $parent;
 
     /**
      * Collection of shapes.
      *
      * @var array<int, AbstractShape>|ArrayObject<int, AbstractShape>
      */
-    private $shapeCollection;
+    protected $shapeCollection;
 
     /**
      * Note identifier.
      *
      * @var string
      */
-    private $identifier;
+    protected $identifier;
 
     /**
      * Hash index.
      *
      * @var int
      */
-    private $hashIndex;
+    protected $hashIndex;
 
     /**
      * Offset X.
@@ -134,16 +134,6 @@ class Note implements ComparableInterface, ShapeContainerInterface
         $this->addShape($shape);
 
         return $shape;
-    }
-
-    /**
-     * Get parent.
-     *
-     * @return Slide
-     */
-    public function getParent()
-    {
-        return $this->parent;
     }
 
     /**
