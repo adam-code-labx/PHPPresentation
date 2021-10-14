@@ -21,7 +21,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "github.com/adam-code-labx/Common"
+            "url": "https://github.com/adam-code-labx/Common"
         }
     ],
     "require": {
