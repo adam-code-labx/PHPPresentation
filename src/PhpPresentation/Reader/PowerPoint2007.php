@@ -800,8 +800,8 @@ class PowerPoint2007 implements ReaderInterface
                 $pathImage = implode('/', $pathImage);
                 $imageFile = $this->oZip->getFromName($pathImage);
                 if (!empty($imageFile)) {
-                    if ($oShape instanceof Gd) {
-                        $info = getimagesizefromstring($imageFile);
+                    // @todo Find out why getimagesizefromstring returns false (bypass for now)
+                    if ($oShape instanceof Gd && $info = getimagesizefromstring($imageFile)) {
                         $oShape->setMimeType($info['mime']);
                         $oShape->setRenderingFunction(str_replace('/', '', $info['mime']));
                         $oShape->setImageResource(imagecreatefromstring($imageFile));
